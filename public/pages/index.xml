@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Advanced Time Series Forecasting (using R)</title>
+    <link>/pages/</link>
+    <description>Recent content in Pages on Advanced Time Series Forecasting (using R)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data</title>
+      <link>/pages/data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/data/</guid>
+      <description>A list of datasets (data/) used in the course:</description>
+    </item>
+    
+    <item>
+      <title>Info</title>
+      <link>/pages/info/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/info/</guid>
+      <description>Software You first need to download and install:
+ Latest R (v4.0.4) Latest RStudio  Open RStudio, and type the following command in the R console:
+install.packages(&amp;#34;tidyverse&amp;#34;) We&amp;rsquo;ll use a collection of R packages called tidyverse throughout the course.
+We&amp;rsquo;ll use a collection of R packages called fpp3 throughout the course.
+Textbook  Forecasting: Principles and Practice by Rob J Hyndman and George Athanasopoulos  Reading Credits  Earo Wang  </description>
+    </item>
+    
+    <item>
+      <title>Team</title>
+      <link>/pages/team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/team/</guid>
+      <description>Lead coordinators   Bahman Rostami-Tabar
+  Thiyanga Talagala
+  Instructors   Session Instructor Contact Affiliation     Session 1 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 2 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 3 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 4 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 5 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 6 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.</description>
+    </item>
+    
+  </channel>
+</rss>

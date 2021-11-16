@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Lab 05 - Advanced Time Series Forecasting (using R)</title>
+<meta name="description" content="This lab exercise is due 23:59 Monday 26 April (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/labs/lab05/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="This lab exercise is due 23:59 Monday 26 April (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked." />
+<meta name="twitter:title" content="Lab 05 - Advanced Time Series Forecasting (using R)" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:type" content="article" />
+<meta content="Lab 05 - Advanced Time Series Forecasting (using R)" property="og:title">
+<meta content="This lab exercise is due 23:59 Monday 26 April (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked." property="og:description">
+<meta property="og:url" content="/labs/lab05/" />
+<meta property="og:site_name" content="Advanced Time Series Forecasting (using R)" />
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{ 
+    "@context": "http://schema.org", 
+    "@type": "BlogPosting",
+    "headline": "Lab 05",
+    "genre": "",  
+    "url": "\/labs\/lab05\/",
+    "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
+    "description": "This lab exercise is due 23:59 Monday 26 April (NZST).\n You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked.",
+    "author": {
+        "@type": "Person",
+        "name": ""
+    }
+ }
+</script>
+
+
+
+
+<link rel="stylesheet" href="/sass/main.css">
+<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+<link rel="stylesheet" href="/css/df.css">
+
+<script src="/assignment2_files/jquery-1.12.4/jquery.min.js"></script>
+<script src="/assignment2_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="/assignment2_files/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-1.3.1/leaflet.js"></script>
+<link href="/assignment2_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="/assignment2_files/proj4-2.6.2/proj4.min.js"></script>
+<script src="/assignment2_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="/assignment2_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<link href="/assignment2_files/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="/assignment2_files/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<script src="/assignment2_files/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="/assignment2_files/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+
+<script src="/lab09_files/core-js-2.5.3/shim.min.js"></script>
+<script src="/lab09_files/react-17.0.0/react.min.js"></script>
+<script src="/lab09_files/react-17.0.0/react-dom.min.js"></script>
+<script src="/lab09_files/reactwidget-1.0.0/react-tools.js"></script>
+<script src="/lab09_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="/lab09_files/reactable-binding-0.2.3/reactable.js"></script>
+<script async type="text/javascript"  src="/js/clip.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="">Advanced Time Series Forecasting (using R)</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/pages/info/"><i class="fas fa-info-circle"></i> Info</a></li>
+        <li><a href="/pages/data/"><i class="fas fa-database"></i> Data</a></li>
+        <li><a href="/pages/team/"><i class="fas fa-chalkboard-teacher"></i> Team</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+
+    <div class="container">
+      <div class="wrapper">
+        
+<div class="row">
+<div class="col-md-8">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+          <header class="post-header">
+            <h1 class="post-title" itemprop="name headline">Lab 05</h1>
+            
+                 
+          </header>
+
+          <div class="post-content" itemprop="articleBody">
+            <p>This lab exercise is <strong>due 23:59 Monday 26 April (NZST)</strong>.</p>
+<ul>
+<li>You should submit an R file (i.e. file extension <code>.R</code>) containing R
+code that assigns <strong>the appropriate values</strong> to <strong>the appropriate
+symbols</strong>.</li>
+<li>Your R file will be executed in order and checked against the values
+that have been assigned to the symbols using an <strong>automatic</strong>
+grading system. Marks will be fully deducted for <strong>non-identical</strong>
+results.</li>
+<li>Intermediate steps to achieve the final results will NOT be checked.</li>
+<li>Each question is worth 0.2 points.</li>
+<li>You should submit your R file on Canvas.</li>
+<li>Late assignments are NOT accepted unless prior arrangement for
+medical/compassionate reasons.</li>
+</ul>
+<hr>
+<p>In this lab exercise, you are going to work with two data sets:
+<code>step-count.csv</code> that contains Dr Wang’s hourly step counts, and
+<code>location.csv</code> with cities where she was in 2019. You shall use the
+following code snippet (and <strong>include them upfront in your R file</strong>) to
+start with this lab session:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(lubridate)
+<span style="color:#a6e22e">library</span>(tidyverse)
+step_count_raw <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;data/step-count/step-count.csv&#34;</span>,
+  locale <span style="color:#f92672">=</span> <span style="color:#a6e22e">locale</span>(tz <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Australia/Melbourne&#34;</span>))
+location <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;data/step-count/location.csv&#34;</span>)
+step_count <span style="color:#f92672">&lt;-</span> step_count_raw <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">rename_with</span>(<span style="color:#f92672">~</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;date_time&#34;</span>, <span style="color:#e6db74">&#34;date&#34;</span>, <span style="color:#e6db74">&#34;count&#34;</span>)) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">left_join</span>(location) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(location <span style="color:#f92672">=</span> <span style="color:#a6e22e">replace_na</span>(location, <span style="color:#e6db74">&#34;Melbourne&#34;</span>))
+step_count
+</code></pre></div><pre><code>#&gt; # A tibble: 5,448 x 4
+#&gt;    date_time           date       count location 
+#&gt;    &lt;dttm&gt;              &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;    
+#&gt;  1 2019-01-01 09:00:00 2019-01-01   764 Melbourne
+#&gt;  2 2019-01-01 10:00:00 2019-01-01   913 Melbourne
+#&gt;  3 2019-01-02 00:00:00 2019-01-02     9 Melbourne
+#&gt;  4 2019-01-02 10:00:00 2019-01-02  2910 Melbourne
+#&gt;  5 2019-01-02 11:00:00 2019-01-02  1390 Melbourne
+#&gt;  6 2019-01-02 12:00:00 2019-01-02  1020 Melbourne
+#&gt;  7 2019-01-02 13:00:00 2019-01-02   472 Melbourne
+#&gt;  8 2019-01-02 15:00:00 2019-01-02  1220 Melbourne
+#&gt;  9 2019-01-02 16:00:00 2019-01-02  1670 Melbourne
+#&gt; 10 2019-01-02 17:00:00 2019-01-02  1390 Melbourne
+#&gt; # … with 5,438 more rows
+</code></pre>
+<p>Suppose that you have created an <code>Rproj</code> for this course. You need to
+download <code>step-count.csv</code>
+<a href="https://raw.githubusercontent.com/STATS-UOA/stats220/master/lectures/data/step-count/step-count.csv">here</a>
+and <code>location.csv</code>
+<a href="https://raw.githubusercontent.com/STATS-UOA/stats220/master/lectures/data/step-count/location.csv">here</a>,
+to <code>data/step-count/</code> under your <code>Rproj</code> folder.</p>
+<ul>
+<li>You’re required to use <strong>relative file paths
+<code>data/step-count/step-count.csv</code> and
+<code>data/step-count/location.csv</code></strong> to import these data. <strong>NO marks
+will be given to this lab for using URL links or different file
+paths.</strong></li>
+<li>NO marks given to the question, in which you apply <code>theme()</code> and
+aesthetics other than what I instruct to the plot.</li>
+</ul>
+<h3 id="question-1">Question 1</h3>
+<p>Calculate average daily step counts for every location, from
+<code>step_count</code>.</p>
+<p>You should end up with a <strong>tibble</strong> called <code>city_avg_steps</code>.</p>
+<details>
+<summary>
+HINTS
+</summary>
+<ol>
+<li>two <code>summarise()</code> needed.</li>
+</ol>
+</details>
+<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">city_avg_steps
+</code></pre></div><pre><code>#&gt; # A tibble: 4 x 2
+#&gt;   location      avg_count
+#&gt;   &lt;chr&gt;             &lt;dbl&gt;
+#&gt; 1 Austin            7738.
+#&gt; 2 Denver           12738.
+#&gt; 3 Melbourne         7912.
+#&gt; 4 San Francisco    13990.
+</code></pre>
+<h3 id="question-2">Question 2</h3>
+<p>Create a lollipop plot to display average daily steps at each location
+from low to high.</p>
+<p>You should end up with a <strong>ggplot</strong> called <code>p1</code>, with</p>
+<ul>
+<li>point: <code>size = 4</code> and <code>colour = &quot;#dd1c77&quot;</code>.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">p1
+</code></pre></div><p><img src="/figures/lab05-q2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<h3 id="question-3">Question 3</h3>
+<p>Add two new columns to the <code>step_count</code>:</p>
+<ol>
+<li><code>time</code>: hour of the day in factor.</li>
+<li><code>country</code>: when <code>location</code> is Melbourne, set values with <code>&quot;AU&quot;</code>;
+otherwise <code>&quot;US&quot;</code>.</li>
+</ol>
+<p>You should end up with a <strong>tibble</strong> called <code>step_count_time</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">step_count_time
+</code></pre></div><pre><code>#&gt; # A tibble: 5,448 x 6
+#&gt;    date_time           date       count location  time  country
+#&gt;    &lt;dttm&gt;              &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;fct&gt; &lt;chr&gt;  
+#&gt;  1 2019-01-01 09:00:00 2019-01-01   764 Melbourne 9     AU     
+#&gt;  2 2019-01-01 10:00:00 2019-01-01   913 Melbourne 10    AU     
+#&gt;  3 2019-01-02 00:00:00 2019-01-02     9 Melbourne 0     AU     
+#&gt;  4 2019-01-02 10:00:00 2019-01-02  2910 Melbourne 10    AU     
+#&gt;  5 2019-01-02 11:00:00 2019-01-02  1390 Melbourne 11    AU     
+#&gt;  6 2019-01-02 12:00:00 2019-01-02  1020 Melbourne 12    AU     
+#&gt;  7 2019-01-02 13:00:00 2019-01-02   472 Melbourne 13    AU     
+#&gt;  8 2019-01-02 15:00:00 2019-01-02  1220 Melbourne 15    AU     
+#&gt;  9 2019-01-02 16:00:00 2019-01-02  1670 Melbourne 16    AU     
+#&gt; 10 2019-01-02 17:00:00 2019-01-02  1390 Melbourne 17    AU     
+#&gt; # … with 5,438 more rows
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">levels</span>(step_count_time<span style="color:#f92672">$</span>time)
+</code></pre></div><pre><code>#&gt;  [1] &quot;0&quot;  &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot;
+#&gt; [14] &quot;13&quot; &quot;14&quot; &quot;15&quot; &quot;16&quot; &quot;17&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot; &quot;21&quot; &quot;22&quot; &quot;23&quot;
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">step_count_time <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">filter</span>(country <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;US&#34;</span>)
+</code></pre></div><pre><code>#&gt; # A tibble: 323 x 6
+#&gt;    date_time           date       count location time  country
+#&gt;    &lt;dttm&gt;              &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;fct&gt; &lt;chr&gt;  
+#&gt;  1 2019-01-15 03:00:00 2019-01-15     8 Austin   3     US     
+#&gt;  2 2019-01-15 05:00:00 2019-01-15   355 Austin   5     US     
+#&gt;  3 2019-01-15 06:00:00 2019-01-15  1800 Austin   6     US     
+#&gt;  4 2019-01-15 07:00:00 2019-01-15   261 Austin   7     US     
+#&gt;  5 2019-01-15 11:00:00 2019-01-15  1240 Austin   11    US     
+#&gt;  6 2019-01-15 12:00:00 2019-01-15   795 Austin   12    US     
+#&gt;  7 2019-01-15 13:00:00 2019-01-15   206 Austin   13    US     
+#&gt;  8 2019-01-15 14:00:00 2019-01-15   481 Austin   14    US     
+#&gt;  9 2019-01-16 01:00:00 2019-01-16  2220 Austin   1     US     
+#&gt; 10 2019-01-16 02:00:00 2019-01-16   711 Austin   2     US     
+#&gt; # … with 313 more rows
+</code></pre>
+<h3 id="question-4">Question 4</h3>
+<p>Create a boxplot that visualises the distribution of hourly step counts.</p>
+<p>You should end up with a <strong>ggplot</strong> called <code>p2</code>, with
+<code>outlier.size = 1</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">p2
+</code></pre></div><p><img src="/figures/lab05-q4-1.png" width="840" style="display: block; margin: auto;" /></p>
+<h3 id="question-5">Question 5</h3>
+<p>Facet <code>p2</code> by countries on rows.</p>
+<p>You should end up with a <strong>ggplot</strong> called <code>p3</code>, with
+<code>outlier.size = 1</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">p3
+</code></pre></div><p><img src="/figures/lab05-q5-1.png" width="840" style="display: block; margin: auto;" /></p>
+<h3 id="question4fun-no-marks">Question4fun (NO marks)</h3>
+<p>This is a challenging question, where you need to have solid
+understanding about time zones in R.</p>
+<p>Your instructor wanders like a ghost during night times in US, due to
+time zone issues. To correct these spooky behaviours, time zones have to
+be adjusted to the local time zone.</p>
+<p>Create a jitter plot to demonstrate the corrected hourly step counts,
+with</p>
+<ul>
+<li><code>position = position_jitter(0.3, seed = 220)</code> and <code>alpha = 0.5</code></li>
+</ul>
+<details>
+<summary>
+HINTS
+</summary>
+<ol>
+<li><code>force_tz()</code> and <code>with_tz()</code> from {lubridate} are useful.</li>
+</ol>
+</details>
+<br>
+<p><img src="/figures/lab05-extra-1.png" width="840" style="display: block; margin: auto;" /></p>
+
+          </div>
+
+    </article>
+    <div class="row">
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+
+
+</div>
+
+
+
+
+      </div>
+    </div>
+
+    <footer>
+    <div class="container">
+        <div class="row p20">
+            
+                <div class="col-md-4 text-center mt25">&#169; <a target="_blank" href="...">Democratising Forecasting project</a></div>
+            
+
+            <div class="col-md-4 text-center mt25" >
+              Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="http://netlify.com">Netlify</a>
+                
+                
+                
+            </div>
+            <div class="col-md-4 text-center mt25">
+               
+               
+               
+               
+               
+            </div>
+
+        </div> 
+    </div>
+</footer>
+    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="//js/bootstrap.min.js"></script>
+  
+  </body>
+
+</html>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Labs on Advanced Time Series Forecasting (using R)</title>
+    <link>/labs/</link>
+    <description>Recent content in Labs on Advanced Time Series Forecasting (using R)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/labs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lab 01</title>
+      <link>/labs/lab01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab01/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 01 Solution</title>
+      <link>/labs/lab01-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab01-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 02</title>
+      <link>/labs/lab02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab02/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 02 Solution</title>
+      <link>/labs/lab02-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab02-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 03</title>
+      <link>/labs/lab03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 03 Solution</title>
+      <link>/labs/lab03-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab03-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 04</title>
+      <link>/labs/lab04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab04/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 04 Solution</title>
+      <link>/labs/lab04-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab04-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 05</title>
+      <link>/labs/lab05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab05/</guid>
+      <description>This lab exercise is due 23:59 Monday 26 April (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked.</description>
+    </item>
+    
+    <item>
+      <title>Lab 05 Solution</title>
+      <link>/labs/lab05-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab05-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 06</title>
+      <link>/labs/lab06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab06/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 06 Solution</title>
+      <link>/labs/lab06-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab06-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 07</title>
+      <link>/labs/lab07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab07/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 07 Solution</title>
+      <link>/labs/lab07-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab07-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 08</title>
+      <link>/labs/lab08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab08/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 08</title>
+      <link>/labs/lab15/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab15/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 08 Solution</title>
+      <link>/labs/lab08-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab08-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 08 Solution</title>
+      <link>/labs/lab15-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab15-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 09</title>
+      <link>/labs/lab09/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab09/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 09</title>
+      <link>/labs/lab14/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab14/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 09 Solution</title>
+      <link>/labs/lab09-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab09-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 09 Solution</title>
+      <link>/labs/lab14-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab14-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 10</title>
+      <link>/labs/lab10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab10/</guid>
+      <description>This lab exercise is due 23:59 Monday 31 May (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked.</description>
+    </item>
+    
+    <item>
+      <title>Lab 10</title>
+      <link>/labs/lab13/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab13/</guid>
+      <description>This lab exercise is due 23:59 Monday 31 May (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked.</description>
+    </item>
+    
+    <item>
+      <title>Lab 10 Solution</title>
+      <link>/labs/lab10-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab10-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 10 Solution</title>
+      <link>/labs/lab13-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab13-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 11</title>
+      <link>/labs/lab11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 11</title>
+      <link>/labs/lab12/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab12/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 11 Solution</title>
+      <link>/labs/lab11-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab11-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 11 Solution</title>
+      <link>/labs/lab12-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab12-sol/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

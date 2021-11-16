@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Posts</title>
+<meta name="description" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:title" content="Posts - Advanced Time Series Forecasting (using R)" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:type" content="website" />
+<meta content="Posts - Advanced Time Series Forecasting (using R)" property="og:title">
+<meta content="" property="og:description">
+<meta property="og:url" content="/posts/" />
+<meta property="og:site_name" content="Advanced Time Series Forecasting (using R)" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/main.css">
+<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+<link rel="stylesheet" href="/css/df.css">
+
+<script src="/assignment2_files/jquery-1.12.4/jquery.min.js"></script>
+<script src="/assignment2_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="/assignment2_files/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-1.3.1/leaflet.js"></script>
+<link href="/assignment2_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="/assignment2_files/proj4-2.6.2/proj4.min.js"></script>
+<script src="/assignment2_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="/assignment2_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<link href="/assignment2_files/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="/assignment2_files/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<script src="/assignment2_files/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="/assignment2_files/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+
+<script src="/lab09_files/core-js-2.5.3/shim.min.js"></script>
+<script src="/lab09_files/react-17.0.0/react.min.js"></script>
+<script src="/lab09_files/react-17.0.0/react-dom.min.js"></script>
+<script src="/lab09_files/reactwidget-1.0.0/react-tools.js"></script>
+<script src="/lab09_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="/lab09_files/reactable-binding-0.2.3/reactable.js"></script>
+<script async type="text/javascript"  src="/js/clip.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="">Advanced Time Series Forecasting (using R)</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/pages/info/"><i class="fas fa-info-circle"></i> Info</a></li>
+        <li><a href="/pages/data/"><i class="fas fa-database"></i> Data</a></li>
+        <li><a href="/pages/team/"><i class="fas fa-chalkboard-teacher"></i> Team</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+
+    <div class="container">
+      <div class="wrapper">
+        
+
+<div class="home">
+ 
+  
+    <div class="row pack">
+
+        
+        
+        
+           
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 0</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/crystall.jpg" alt="Introduction">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Introduction</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj00" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/00-intro.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/00-intro.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/00-intro.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 1</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/crystall.jpg" alt="Dynamic Regression Models">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Dynamic Regression Models</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj01" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/session01.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/session01.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/session01.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/tutorials/tutorial01.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab01" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab01-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 2</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Modern regression: Lasso">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Modern regression: Lasso</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj02" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/02-preparing-data.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/02-preparing-data.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/02-preparing-data.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/02-t-preparing-data.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab02" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab02-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 3</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/pattern.png" alt="Modern regression: Ridge">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Modern regression: Ridge</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj03" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/03-tspatterns.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/03-tspatterns.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/03-tspatterns.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/03-t-tspatterns.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab03" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab03-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 4</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="feature based time series forecasting 1">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">feature based time series forecasting 1</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj04" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/04-fit-models.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/04-fit-models.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/04-fit-models.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/04-t-fit-models.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab04" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab04-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 5</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="feature based time series forecasting 2">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">feature based time series forecasting 2</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj05" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/05-evaluate-accuracy.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/05-evaluate-accuracy.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/05-t-evaluate-accuracy.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab05" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab05-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 6</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Machine Learning (LSTM, LGBM)">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Machine Learning (LSTM, LGBM)</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj06" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/06-linear-regression.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/06-linear-regression.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/06-linear-regression.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/06-t-linear-regression.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab06" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab06-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 7</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Count time series">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Count time series</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj07" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/07-ets1.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/07-ets1.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/07-ets1.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/07-t-ets1.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab07" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab07-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 8</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Intermittent time series">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Intermittent time series</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj08" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/08-ets2.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/08-ets2.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/08-ets2.ets2" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/08-t-ets2.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab08" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab08-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 9</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Hierarchical and grouped time series">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Hierarchical and grouped time series</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj09" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/09-arima.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/09-arima.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/09-arima.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/09-t-arima.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab09" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab09-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="https://www.youtube.com/embed/PPxi-IoAf7A" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 10</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Hierarchical and grouped time series">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Hierarchical and grouped time series</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj10" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/10-multiple-seasonality.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/10-multiple-seasonality.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/10-multiple-seasonality.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/10-t-multiple-seasonality.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab10" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab10-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 11</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Temporal aggregation">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Temporal aggregation</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj11" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/11-judgment.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/11-judgment.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/11-judgment.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/11-t-judgment.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab11" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab11-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 12</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt=" Bootstrapping, Bagging">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title"> Bootstrapping, Bagging</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj12" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/12-best-worse.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/12-best-worse.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/12-best-worse.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/12-t-best-worse.Rmd" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab12" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/labs/lab12-sol" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 13</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Ensembles">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Ensembles</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj13" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/13-practice-nhs.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/13-practice-nhs.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/13-practice-nhs.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    
+                    
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 14</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Probabilistic forecasting">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Probabilistic forecasting</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj14" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/14-practice-usaid.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/14-practice-usaid.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/14-practice-usaid.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    
+                    
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+             
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session 15</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  
+                  <img width="400" height="223" src="images/prepare.jpg" alt="Probabilistic forecasting">
+                  
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">Probabilistic forecasting</h3>
+                    
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/objs/obj15" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    
+                  <a class="btn btn-info btn-sm list-group-item-text" href="/15-practice-redcross.html" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              
+                    
+                      <a class="btn btn-info btn-sm list-group-item-text" href="/15-practice-redcross.pdf" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      
+                    <a class="btn btn-info btn-sm list-group-item-text" href="/15-practice-redcross.Rmd" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+
+                  
+                    
+                    
+                                        
+                  </div>
+                  
+                  
+                  
+                </div>
+              </a>
+            </div>
+        
+          
+
+    </div> 
+    
+<div class="row">
+    <div class="col-md-4">  </div>
+    <div class="col-md-4">
+        
+
+    </div>
+    <div class="col-md-4">  </div>
+</div>
+</div>
+
+
+      </div>
+    </div>
+
+    <footer>
+    <div class="container">
+        <div class="row p20">
+            
+                <div class="col-md-4 text-center mt25">&#169; <a target="_blank" href="...">Democratising Forecasting project</a></div>
+            
+
+            <div class="col-md-4 text-center mt25" >
+              Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="http://netlify.com">Netlify</a>
+                
+                
+                
+            </div>
+            <div class="col-md-4 text-center mt25">
+               
+               
+               
+               
+               
+            </div>
+
+        </div> 
+    </div>
+</footer>
+    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="//js/bootstrap.min.js"></script>
+  
+  </body>
+
+</html>

@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced Time Series Forecasting (using R)</title>
+    <link>/</link>
+    <description>Recent content on Advanced Time Series Forecasting (using R)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> Bootstrapping, Bagging</title>
+      <link>/posts/session12/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session12/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Count time series</title>
+      <link>/posts/session07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session07/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>/pages/data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/data/</guid>
+      <description>A list of datasets (data/) used in the course:</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Regression Models</title>
+      <link>/posts/session01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session01/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ensembles</title>
+      <link>/posts/session13/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session13/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>feature based time series forecasting 1</title>
+      <link>/posts/session04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session04/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>feature based time series forecasting 2</title>
+      <link>/posts/session05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session05/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hierarchical and grouped time series</title>
+      <link>/posts/session09/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session09/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hierarchical and grouped time series</title>
+      <link>/posts/session10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Info</title>
+      <link>/pages/info/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/info/</guid>
+      <description>Software You first need to download and install:
+ Latest R (v4.0.4) Latest RStudio  Open RStudio, and type the following command in the R console:
+install.packages(&amp;#34;tidyverse&amp;#34;) We&amp;rsquo;ll use a collection of R packages called tidyverse throughout the course.
+We&amp;rsquo;ll use a collection of R packages called fpp3 throughout the course.
+Textbook  Forecasting: Principles and Practice by Rob J Hyndman and George Athanasopoulos  Reading Credits  Earo Wang  </description>
+    </item>
+    
+    <item>
+      <title>Intermittent time series</title>
+      <link>/posts/session08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session08/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/posts/00-intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/00-intro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 01</title>
+      <link>/labs/lab01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab01/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 01 Solution</title>
+      <link>/labs/lab01-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab01-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 02</title>
+      <link>/labs/lab02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab02/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 02 Solution</title>
+      <link>/labs/lab02-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab02-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 03</title>
+      <link>/labs/lab03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 03 Solution</title>
+      <link>/labs/lab03-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab03-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 04</title>
+      <link>/labs/lab04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab04/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 04 Solution</title>
+      <link>/labs/lab04-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab04-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 05</title>
+      <link>/labs/lab05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab05/</guid>
+      <description>This lab exercise is due 23:59 Monday 26 April (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked.</description>
+    </item>
+    
+    <item>
+      <title>Lab 05 Solution</title>
+      <link>/labs/lab05-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab05-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 06</title>
+      <link>/labs/lab06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab06/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 06 Solution</title>
+      <link>/labs/lab06-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab06-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 07</title>
+      <link>/labs/lab07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab07/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 07 Solution</title>
+      <link>/labs/lab07-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab07-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 08</title>
+      <link>/labs/lab08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab08/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 08</title>
+      <link>/labs/lab15/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab15/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 08 Solution</title>
+      <link>/labs/lab08-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab08-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 08 Solution</title>
+      <link>/labs/lab15-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab15-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 09</title>
+      <link>/labs/lab09/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab09/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 09</title>
+      <link>/labs/lab14/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab14/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 09 Solution</title>
+      <link>/labs/lab09-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab09-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 09 Solution</title>
+      <link>/labs/lab14-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab14-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 10</title>
+      <link>/labs/lab10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab10/</guid>
+      <description>This lab exercise is due 23:59 Monday 31 May (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked.</description>
+    </item>
+    
+    <item>
+      <title>Lab 10</title>
+      <link>/labs/lab13/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab13/</guid>
+      <description>This lab exercise is due 23:59 Monday 31 May (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked.</description>
+    </item>
+    
+    <item>
+      <title>Lab 10 Solution</title>
+      <link>/labs/lab10-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab10-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 10 Solution</title>
+      <link>/labs/lab13-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab13-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 11</title>
+      <link>/labs/lab11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 11</title>
+      <link>/labs/lab12/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab12/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 11 Solution</title>
+      <link>/labs/lab11-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab11-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 11 Solution</title>
+      <link>/labs/lab12-sol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/labs/lab12-sol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj00/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj00/</guid>
+      <description>Who is the course for?   Anyone who wants to get an advance knowledge of time series forecasting;
+  A data analyst who wants to get in depth knowledge of advance aspects of time series forecasting;
+  A Forecaster who wants to apply advance forecasting in R.
+  What participants will learn in the workshop Participants will be able to:
+  Understand statistical models used in forecasting;</description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj01/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj02/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj03/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj04/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj05/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj06/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj07/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj08/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj09/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj09/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj10/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj11/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj12/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj12/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj13/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj13/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj14/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj14/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Learning objectives</title>
+      <link>/objs/obj15/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/objs/obj15/</guid>
+      <description>By the end of this week, learners should be able to
+ blabla blaba  </description>
+    </item>
+    
+    <item>
+      <title>Machine Learning (LSTM, LGBM)</title>
+      <link>/posts/session06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session06/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modern regression: Lasso</title>
+      <link>/posts/session02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session02/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modern regression: Ridge</title>
+      <link>/posts/session03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probabilistic forecasting</title>
+      <link>/posts/session14/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session14/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probabilistic forecasting</title>
+      <link>/posts/session15/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session15/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Team</title>
+      <link>/pages/team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/team/</guid>
+      <description>Lead coordinators   Bahman Rostami-Tabar
+  Thiyanga Talagala
+  Instructors   Session Instructor Contact Affiliation     Session 1 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 2 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 3 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 4 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 5 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.ac.uk Cardiff University   Session 6 Bahman Rostami-Tabar rostami-tabarb[at]cardiff.</description>
+    </item>
+    
+    <item>
+      <title>Temporal aggregation</title>
+      <link>/posts/session11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/session11/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Lab 10 - Advanced Time Series Forecasting (using R)</title>
+<meta name="description" content="This lab exercise is due 23:59 Monday 31 May (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/labs/lab13/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="This lab exercise is due 23:59 Monday 31 May (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked." />
+<meta name="twitter:title" content="Lab 10 - Advanced Time Series Forecasting (using R)" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:type" content="article" />
+<meta content="Lab 10 - Advanced Time Series Forecasting (using R)" property="og:title">
+<meta content="This lab exercise is due 23:59 Monday 31 May (NZST).
+ You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked." property="og:description">
+<meta property="og:url" content="/labs/lab13/" />
+<meta property="og:site_name" content="Advanced Time Series Forecasting (using R)" />
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{ 
+    "@context": "http://schema.org", 
+    "@type": "BlogPosting",
+    "headline": "Lab 10",
+    "genre": "",  
+    "url": "\/labs\/lab13\/",
+    "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
+    "description": "This lab exercise is due 23:59 Monday 31 May (NZST).\n You should submit an R file (i.e. file extension .R) containing R code that assigns the appropriate values to the appropriate symbols. Your R file will be executed in order and checked against the values that have been assigned to the symbols using an automatic grading system. Marks will be fully deducted for non-identical results. Intermediate steps to achieve the final results will NOT be checked.",
+    "author": {
+        "@type": "Person",
+        "name": ""
+    }
+ }
+</script>
+
+
+
+
+<link rel="stylesheet" href="/sass/main.css">
+<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+<link rel="stylesheet" href="/css/df.css">
+
+<script src="/assignment2_files/jquery-1.12.4/jquery.min.js"></script>
+<script src="/assignment2_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="/assignment2_files/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-1.3.1/leaflet.js"></script>
+<link href="/assignment2_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="/assignment2_files/proj4-2.6.2/proj4.min.js"></script>
+<script src="/assignment2_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="/assignment2_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<link href="/assignment2_files/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="/assignment2_files/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="/assignment2_files/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<script src="/assignment2_files/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="/assignment2_files/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+
+<script src="/lab09_files/core-js-2.5.3/shim.min.js"></script>
+<script src="/lab09_files/react-17.0.0/react.min.js"></script>
+<script src="/lab09_files/react-17.0.0/react-dom.min.js"></script>
+<script src="/lab09_files/reactwidget-1.0.0/react-tools.js"></script>
+<script src="/lab09_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="/lab09_files/reactable-binding-0.2.3/reactable.js"></script>
+<script async type="text/javascript"  src="/js/clip.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="">Advanced Time Series Forecasting (using R)</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/pages/info/"><i class="fas fa-info-circle"></i> Info</a></li>
+        <li><a href="/pages/data/"><i class="fas fa-database"></i> Data</a></li>
+        <li><a href="/pages/team/"><i class="fas fa-chalkboard-teacher"></i> Team</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+
+    <div class="container">
+      <div class="wrapper">
+        
+<div class="row">
+<div class="col-md-8">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+          <header class="post-header">
+            <h1 class="post-title" itemprop="name headline">Lab 10</h1>
+            
+                 
+          </header>
+
+          <div class="post-content" itemprop="articleBody">
+            <p>This lab exercise is <strong>due 23:59 Monday 31 May (NZST)</strong>.</p>
+<ul>
+<li>You should submit an R file (i.e. file extension <code>.R</code>) containing R
+code that assigns <strong>the appropriate values</strong> to <strong>the appropriate
+symbols</strong>.</li>
+<li>Your R file will be executed in order and checked against the values
+that have been assigned to the symbols using an <strong>automatic</strong>
+grading system. Marks will be fully deducted for <strong>non-identical</strong>
+results.</li>
+<li>Intermediate steps to achieve the final results will NOT be checked.</li>
+<li>Each question is worth 0.2 points.</li>
+<li>You should submit your R file on Canvas.</li>
+<li>Late assignments are NOT accepted unless prior arrangement for
+medical/compassionate reasons.</li>
+</ul>
+<hr>
+<p>In this lab exercise, you are going to carry out sentiment analysis from
+the critics for Animal Crossing - New Horizons. You shall use the
+following code snippet (and <strong>include them upfront in your R file</strong>) for
+this lab session:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(ggrepel)
+<span style="color:#a6e22e">library</span>(tidytext)
+<span style="color:#a6e22e">library</span>(tidyverse)
+rm_words <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;animal&#34;</span>, <span style="color:#e6db74">&#34;crossing&#34;</span>, <span style="color:#e6db74">&#34;horizons&#34;</span>, <span style="color:#e6db74">&#34;game&#34;</span>, <span style="color:#e6db74">&#34;nintendo&#34;</span>, 
+  <span style="color:#e6db74">&#34;switch&#34;</span>, <span style="color:#e6db74">&#34;series&#34;</span>, <span style="color:#e6db74">&#34;island&#34;</span>)
+critic <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_tsv</span>(<span style="color:#e6db74">&#34;data/animal-crossing/critic.tsv&#34;</span>)
+critic
+</code></pre></div><pre><code>#&gt; # A tibble: 107 x 4
+#&gt;    grade publication    text                                date      
+#&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;                               &lt;date&gt;    
+#&gt;  1   100 Pocket Gamer … Animal Crossing; New Horizons, muc… 2020-03-16
+#&gt;  2   100 Forbes         Know that if you’re overwhelmed wi… 2020-03-16
+#&gt;  3   100 Telegraph      With a game this broad and lengthy… 2020-03-16
+#&gt;  4   100 VG247          Animal Crossing: New Horizons is e… 2020-03-16
+#&gt;  5   100 Nintendo Insi… Above all else, Animal Crossing: N… 2020-03-16
+#&gt;  6   100 Trusted Revie… Animal Crossing: New Horizons is t… 2020-03-16
+#&gt;  7   100 VGC            Nintendo's comforting life sim is … 2020-03-16
+#&gt;  8   100 God is a Geek  A beautiful, welcoming game that i… 2020-03-16
+#&gt;  9   100 Nintendo Life  Animal Crossing: New Horizons take… 2020-03-16
+#&gt; 10   100 Daily Star     Similar to how Breath of the Wild … 2020-03-16
+#&gt; # … with 97 more rows
+</code></pre>
+<p>Suppose that you have created an <code>Rproj</code> for this course. You need to
+download <code>critic.tsv</code>
+<a href="https://github.com/rfordatascience/tidytuesday/raw/master/data/2020/2020-05-05/critic.tsv">here</a>
+to <code>data/animal-crossing/</code> under your <code>Rproj</code> folder.</p>
+<ul>
+<li>You’re required to use <strong>relative file paths
+<code>data/animal-crossing/critic.tsv</code></strong> to import these data. <strong>NO marks
+will be given to this lab for using URL links or different file
+paths.</strong></li>
+</ul>
+<h3 id="question-1">Question 1</h3>
+<p>Tokenise the <code>text</code> column from <code>critic</code> into the <code>word</code> column as
+one-word-per-row.</p>
+<p>You should end up with a <strong>tibble</strong> called <code>critic_tokens</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">critic_tokens
+</code></pre></div><pre><code>#&gt; # A tibble: 5,741 x 4
+#&gt;    grade publication     date       word        
+#&gt;    &lt;dbl&gt; &lt;chr&gt;           &lt;date&gt;     &lt;chr&gt;       
+#&gt;  1   100 Pocket Gamer UK 2020-03-16 animal      
+#&gt;  2   100 Pocket Gamer UK 2020-03-16 crossing    
+#&gt;  3   100 Pocket Gamer UK 2020-03-16 new         
+#&gt;  4   100 Pocket Gamer UK 2020-03-16 horizons    
+#&gt;  5   100 Pocket Gamer UK 2020-03-16 much        
+#&gt;  6   100 Pocket Gamer UK 2020-03-16 like        
+#&gt;  7   100 Pocket Gamer UK 2020-03-16 its         
+#&gt;  8   100 Pocket Gamer UK 2020-03-16 predecessors
+#&gt;  9   100 Pocket Gamer UK 2020-03-16 operates    
+#&gt; 10   100 Pocket Gamer UK 2020-03-16 outside     
+#&gt; # … with 5,731 more rows
+</code></pre>
+<h3 id="question-2">Question 2</h3>
+<p>Remove stop words (using the <code>&quot;smart&quot;</code> source) from <code>critic_tokens</code>.</p>
+<p>You should end up with a <strong>tibble</strong> called <code>critic_smart</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">critic_smart
+</code></pre></div><pre><code>#&gt; # A tibble: 2,469 x 4
+#&gt;    grade publication     date       word        
+#&gt;    &lt;dbl&gt; &lt;chr&gt;           &lt;date&gt;     &lt;chr&gt;       
+#&gt;  1   100 Pocket Gamer UK 2020-03-16 animal      
+#&gt;  2   100 Pocket Gamer UK 2020-03-16 crossing    
+#&gt;  3   100 Pocket Gamer UK 2020-03-16 horizons    
+#&gt;  4   100 Pocket Gamer UK 2020-03-16 predecessors
+#&gt;  5   100 Pocket Gamer UK 2020-03-16 operates    
+#&gt;  6   100 Pocket Gamer UK 2020-03-16 boundaries  
+#&gt;  7   100 Pocket Gamer UK 2020-03-16 games       
+#&gt;  8   100 Pocket Gamer UK 2020-03-16 tension     
+#&gt;  9   100 Pocket Gamer UK 2020-03-16 feel        
+#&gt; 10   100 Pocket Gamer UK 2020-03-16 sprinting   
+#&gt; # … with 2,459 more rows
+</code></pre>
+<h3 id="question-3">Question 3</h3>
+<p>Filter out these common words (specified in <code>rm_words</code>) from
+<code>critic_smart</code>, and create a bar chart to display the top 20 most common
+words.</p>
+<p>You should end up with a <strong>ggplot</strong> called <code>p1</code>, with labels:</p>
+<ul>
+<li>x: <code>&quot;Frequency of words&quot;</code></li>
+<li>y: <code>&quot;&quot;</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">p1
+</code></pre></div><p><img src="/figures/lab10-q3-1.png" width="840" style="display: block; margin: auto;" /></p>
+<h3 id="question-4">Question 4</h3>
+<p>To summarise the sentiments of <code>critic_smart</code>, you need to:</p>
+<ol>
+<li>join <code>critic_smart</code> with the sentiment lexicon sourced from <code>&quot;bing&quot;</code></li>
+<li>count the frequency of <code>sentiment</code> and <code>word</code></li>
+<li>arrange the frequency of words in ascending order</li>
+</ol>
+<p>You should end up with a <strong>tibble</strong> called <code>critic_sentiments</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">critic_sentiments
+</code></pre></div><pre><code>#&gt; # A tibble: 234 x 3
+#&gt;    sentiment word          n
+#&gt;    &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt;
+#&gt;  1 negative  addicted      1
+#&gt;  2 negative  addicting     1
+#&gt;  3 negative  annoyance     1
+#&gt;  4 negative  archaic       1
+#&gt;  5 negative  betraying     1
+#&gt;  6 negative  bore          1
+#&gt;  7 negative  bored         1
+#&gt;  8 negative  boring        1
+#&gt;  9 negative  break         1
+#&gt; 10 negative  burden        1
+#&gt; # … with 224 more rows
+</code></pre>
+<h3 id="question-5">Question 5</h3>
+<p>Create a small multiple of wordclouds for <code>critic_sentiments</code>,
+conditional on the <code>sentiment</code> column.</p>
+<ol>
+<li>Use
+<a href="https://ggrepel.slowkow.com/reference/geom_text_repel.html"><code>geom_text_repel()</code></a>
+from {ggrepel} to label each word, sized by the frequency of words
+and coloured by <code>sentiment</code>.</li>
+<li>Set the common origin <code>aes(x = 0, y = 0)</code> and let
+<code>geom_text_repel()</code> pull words away from the origin, since no
+coordinates are provided to each word in wordcloud.</li>
+<li>Supply <code>geom_text_repel()</code> with the following arguments:
+<ul>
+<li><code>force_pull = 0</code></li>
+<li><code>max.overlaps = Inf</code></li>
+<li><code>segment.color = NA</code></li>
+<li><code>point.padding = NA</code></li>
+<li><code>seed = 220</code></li>
+</ul>
+</li>
+<li>Map <code>&quot;#c51b7d&quot;</code> to positive sentiments, and <code>&quot;#4d9221&quot;</code> to negative
+ones.</li>
+</ol>
+<p>You should end up with a <strong>ggplot</strong> called <code>p2</code>, with</p>
+<ul>
+<li>the black-and-white theme</li>
+<li>axes ticks, texts, and labels removed</li>
+<li>legends removed</li>
+</ul>
+<p><strong>NOTE:</strong> if your placement of words is slightly off from the sample
+plot, that’s okay, since the figure size affects the placement.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">p2
+</code></pre></div><p><img src="/figures/lab10-q5-1.png" width="960" style="display: block; margin: auto;" /></p>
+
+          </div>
+
+    </article>
+    <div class="row">
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+
+
+</div>
+
+
+
+
+      </div>
+    </div>
+
+    <footer>
+    <div class="container">
+        <div class="row p20">
+            
+                <div class="col-md-4 text-center mt25">&#169; <a target="_blank" href="...">Democratising Forecasting project</a></div>
+            
+
+            <div class="col-md-4 text-center mt25" >
+              Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="http://netlify.com">Netlify</a>
+                
+                
+                
+            </div>
+            <div class="col-md-4 text-center mt25">
+               
+               
+               
+               
+               
+            </div>
+
+        </div> 
+    </div>
+</footer>
+    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="//js/bootstrap.min.js"></script>
+  
+  </body>
+
+</html>

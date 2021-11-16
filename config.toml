@@ -29,6 +29,6 @@ staticDir = ["static", "lectures"]
   analytics = ""
   disqus = ""
 
-  [params.copyright]
-     name = "Democratising Forecasting project"
-     link = "..."
+[params.copyright]
+  name = "Democratising Forecasting project"
+  link = "..."
