@@ -1,0 +1,146 @@
+---
+title: "Road Traffic Accidents"
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: >
+  Get more practice with data visualization and wrangling in the tidyverse: 
+  practice visualization with ggplot2, and data handling with the filter() and 
+  mutate() functions.
+---
+
+<!-- Add JavaScript code for making the exercise code larger -->
+<script language="JavaScript" src="js/exercise-font-size.js"></script>
+
+```{r setup, include=FALSE}
+# load packages ----------------------------------------------------------------
+
+library(learnr)
+library(gradethis)
+library(tidyverse)
+
+# set options for exercises and checking ---------------------------------------
+
+gradethis_setup()
+
+# hide non-exercise code chunks ------------------------------------------------
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+```{r biker, fig.margin = TRUE, echo = FALSE, out.width="100%", fig.cap="Photo by Carly Reeves on Unsplash"}
+#might replace the image!
+knitr::include_graphics("images/traffic.jpg")
+```
+
+In this tutorial, we will look at traffic accidents in Edinburgh.
+The data are made available [online](https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data/datafile/36f1658e-b709-47e7-9f56-cca7aefeb8fe/preview) by the UK Government. 
+It covers all recorded accidents in Edinburgh in 2018 and some of the variables were modified for the purposes of this tutorial. 
+
+### Learning goals
+
+- Continue practising data visualization skills with ggplot2. 
+- Filter data for certain attributes with `filter()`. 
+- Create new variables based on existing variables in the data with `mutate()`. 
+
+### Packages
+
+We'll use the **tidyverse** package for the analysis and the **dsbox** package for the data.
+These packages are already installed for you, so you load it as usual by running the following code:
+
+```{r load-packages, exercise = TRUE}
+library(tidyverse)
+```
+
+```{r load-packages-solution}
+library(tidyverse)
+```
+
+```{r load-packages-check}
+grade_this_code("The tidyverse and dsbox packages are now loaded!")
+```
+
+## Data
+
+The data is in the `dsbox` package and it's called `accidents`. 
+
+Below is an excerpt of the data dictionary. 
+Note that it is long (there are lots of variables in the data), but we will be using a limited set of the variables for our analysis.
+
+| Header                        |  Description
+|:----------------|:--------------------------------
+| `id` | Accident ID
+| `easting` | Easting of accident location
+| `northing` | Northing of accident location
+| `longitude` | Longitude of accident location
+| `latitude` | Latitude of accident location
+| `police_force` | Police force
+| `severity` | Accident severity: Fatal, Serious, Slight
+| `vehicles` | Number of vehicles involved in accident
+| `casualties` | Number of people injured in the accident
+| `date` | Date of the accident
+| `day_of_week` | Day of the week of the accident
+| `time` | Time of the accident on the 24h clock
+| `district` | Local authority district
+| `highway` | Local authority highway
+| `first_road_class` | Class of 1st road involved in accident: Motorway, A(M) road (A-road with motorway restrictions), A-road, B-road, C-road, Unclassified
+| `first_road_number` | ID of 1st road (0 if unclassified)
+| `road_type` | Type of road: Roundabout, One way street, Dual carriageway, Single carriageway, Slip road
+| `speed_limit` | Speed limit on the road in mph
+| `junction_detail` | Detail on junction where accident occurred: Crossroads, Mini-roundabout, More than 4 arms, Not within 20 metres of junction, Other junction, Private drive or entrance, Roundabout, Slip road, T or staggered junction
+| `junction_control` | How junction was controlled: Authorised person, Auto traffic signal, Give way or uncontrolled, Missing / Out of range, Stop sign
+| `second_road_class` | Class of 2st road involved in accident: A-road, B-road, C-road, Missing / Out of range, Motorway, Unclassified
+| `second_road_number` | ID of 2nd road (0 if unclassified)
+| `ped_cross_human` | Level of human control at a pedestrian crossing: Control by other authorised person, Control by school crossing patrol, None within 50 metres
+| `ped_cross_physical` | Level of facilities controlling a pedestrian crossing: Central refuge, No physical crossing facilities within 50 metres, Non-junction crossing (pelican, puffin, toucan or similar light crossing), Pedestrian phase at traffic signal junction, Zebra crossing
+| `light` | Light condition at the time of accident: Daylight, Darkness - lights lit, Darkness - lights unlit, Darkness - no lighting, Darkness - lighting unknown
+| `weather` | Weather condition at the time of accident: Fine + no high winds, Raining + no high winds, Snowing + no high winds, Fine + high winds, Raining + high winds, Snowing + high winds, Fog or mist, Other, Unknown
+| `road_surface` | Road surface conditions at the time of the accident: Dry, Wet or damp, Snow, Frost or ice, Flood over 3cm deep
+| `special_condition` | Special condition at the site of the accident: None, Road sign or marking defective or obscured, Roadworks, Road surface defective
+| `hazard` | Carriageway hazards: None, Other object on road, Previous accident, Pedestrian in carriageway - not injured
+| `urban_rural` | Type of area the accident occurred in
+| `police` | Did police officer attend the scene of the accident: No, No + accident self reported (using a self completion form), Yes
+
+### First look at the data
+
+You can take a peek at the data using the `glimpse()` function in the box below.
+
+```{r glimpse-data, exercise = TRUE}
+glimpse(diamonds)
+```
+
+```{r quiz-rows}
+question("What does each row in the dataset represent?",
+    answer("The registration number of a car"),
+    answer("The location of an accident"),
+    answer("A recorded accident",
+           correct = TRUE,
+           message = "Each row in the dataset contains all information relating to an individual recorded accident in Edinburgh."),
+    answer("An insurance claim "),
+    allow_retry = TRUE
+  )
+```
+
+How many accidents were recorded in Edinburgh in 2018? 
+Use the following code chunk to submit your answer. 
+
+```{r nrow, exercise = TRUE}
+
+```
+
+```{r nrow-hint-1}
+Each row represents one recorded accident!
+```
+
+```{r nrow-hint-2}
+Try using nrow()!
+```
+
+## Wrap up
+
+You have finished tutorial two, good job! 
+We hope you enjoyed this lesson on data visualisation.

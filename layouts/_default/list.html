@@ -1,0 +1,97 @@
+{{ define "main" }}
+
+<div class="home">
+ 
+  
+    <div class="row pack">
+
+        {{ $pages := where .Site.RegularPages "Section" "posts" }}
+        {{ $sorted := $pages.ByParam "session" }}
+        {{ $paginator := .Paginate ($sorted) }}
+        {{ range $paginator.Pages }}   
+            <div class="col-md-4 card">
+              <span class="post-meta"><strong>Session {{ .Params.session }}</strong></span>
+
+                <div class="panel panel-default">
+                  
+                  {{ if .Params.img }}
+                  <img width="400" height="223" src="{{ .Params.img }}" alt="{{ .Title }}">
+                  {{ else }}
+                  <img width="400" height="223" src="{{ .Site.BaseURL }}images/{{ .Site.Params.defaultImage }}" alt="{{ .Title }}">
+                  {{ end }}
+                  
+                  <div class="panel-body text-center">
+                    <h3 class="panel-title">{{ .Title }}</h3>
+                    <!-- <span class="post&#45;meta"><small>Week {{ .Params.week }}</small></span> -->
+                  </div>
+                  
+                  <div class="panel-body text-center">
+                    <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Site.BaseURL }}{{ .Params.obj }}" target="_blank" rel="noopener" role="button"><i class="fas fa-bullseye"></i></a>
+                    {{ if .Params.slides }}
+                  <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Site.BaseURL }}{{ .Params.slides }}" target="_blank" rel="noopener" role="button"><i class="fab fa-chrome"></i></a>
+              {{ end }}
+                    {{ if .Params.pdf }}
+                      <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Site.BaseURL }}{{ .Params.pdf }}" target="_blank" rel="noopener" role="button"><i class="fas fa-file-pdf"></i></a>
+                      {{ end }}
+                    <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Site.BaseURL }}{{ .Params.rmd }}" target="_blank" rel="noopener" role="button" download><i class="fab fa-markdown"></i></a>                      
+<!--                    <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Site.BaseURL }}R/{{ .Params.r }}" target="_blank" rel="noopener" role="button" download><i class="fab fa-r-project"></i></a>-->
+                  {{ if .Params.tutorial }}
+                    <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Site.BaseURL }}{{ .Params.tutorial }}" target="_blank" rel="noopener" role="button" download><i class="fa fa-clipboard-check"></i></a>                 
+                    {{ end }}
+                    {{ if .Params.lab }}
+                      <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Site.BaseURL }}{{ .Params.lab }}" target="_blank" rel="noopener" role="button"><i class="fas fa-laptop-code"></i></a>
+                    {{ end }}
+                    {{ if .Params.sol }}
+                      <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Site.BaseURL }}{{ .Params.sol }}" target="_blank" rel="noopener" role="button"><i class="fas fa-key"></i></a>
+                    {{ end }}
+                    {{ if .Params.video }}
+                      <a class="btn btn-info btn-sm list-group-item-text" href="{{ .Params.video }}" target="_blank" rel="noopener" role="button"><i class="fab fa-youtube"></i></a>
+                    {{ end }}                    
+                  </div>
+                  <!-- <div class="panel&#45;body"><small> -->
+                  <!--   {{ .Summary | plainify | truncate 180 }}</small> -->
+                  <!-- </div> -->
+                </div>
+              </a>
+            </div>
+        
+          {{ end }}
+
+    </div> 
+    
+<div class="row">
+    <div class="col-md-4">  </div>
+    <div class="col-md-4">
+        {{ if gt .Paginator.TotalPages 1 }}
+        <ul class="pagination">
+          {{ if .Paginator.HasPrev }}
+            <li><a href="{{ .Paginator.Prev.URL }}">&laquo; Prev</a></li>
+          {{ else }}
+            <li><span>&laquo; Prev</span></li>
+          {{ end }}
+
+          {{ $scratch := newScratch }}
+          {{ $scratch.Set "current" .Paginator.PageNumber }} 
+
+          {{ range .Paginator.Pagers }}
+            {{ if eq .PageNumber ($scratch.Get "current") }}
+              <li class="active"><span><em>{{ .PageNumber }}</em></span></li>
+            {{ else }}
+            <li><a href="{{ .URL }}">{{ .PageNumber }}</a></li>
+            {{ end }}
+          {{ end }}
+
+          {{ if .Paginator.HasNext }}
+            <li><a href="{{ .Paginator.Next.URL }}">Next &raquo;</a></li>
+          {{ else }}
+            <li><span >Next &raquo;</span></li>
+          {{ end }}
+          </ul>
+        {{ end }}
+
+    </div>
+    <div class="col-md-4">  </div>
+</div>
+</div>
+
+{{ end }}

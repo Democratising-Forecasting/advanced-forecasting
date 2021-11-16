@@ -1,0 +1,34 @@
+baseurl = "/"
+languageCode = "en-us"
+title = "Advanced Time Series Forecasting (using R)"
+theme = "hugo-cards"
+paginate = 18
+
+staticDir = ["static", "lectures"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  custom_css = ["css/df.css"]
+
+  builtBy = "netlify"
+  defaultImage = "gopher.jpg"
+
+  facebook = ""
+  quora = ""
+  twitter = ""
+  github = ""
+  email = ""
+
+  fbLikeBox = ""
+  fbAppId = ""
+  fbPageUrl = ""
+  fbPageTitle = ""
+
+  analytics = ""
+  disqus = ""
+
+  [params.copyright]
+     name = "Democratising Forecasting project"
+     link = "..."

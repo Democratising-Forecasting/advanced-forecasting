@@ -1,0 +1,61 @@
+---
+title: "principles of forecasting"
+subtitle: ""
+author: "Bahman Rostami Tabar"
+#date: '25/11/2020'xaringan::inf_mr()
+output:
+  xaringan::moon_reader:
+    chakra: ./libs/remark-latest.min.js
+    css: ["././libs/slides.css"]
+    lib_dir: ./libs
+    seal: false
+    beforeInit: ["https://platform.twitter.com/widgets.js"]
+    anchor_sections: false
+    nature:
+      highlightStyle: github
+      highlightLanguage: ["r","markdown","yaml"]
+      ratio: '16:9'
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false 
+---
+
+```{r initial, echo = FALSE, cache = FALSE, results = 'hide'}
+library(knitr)
+library(fontawesome)
+options(htmltools.dir.version = FALSE,
+  tibble.width = 60, tibble.print_min = 6)
+opts_chunk$set(
+  echo = TRUE, warning = FALSE, message = FALSE, comment = "#>",
+  fig.path = 'figure/', cache.path = 'cache/', cache = TRUE, fig.retina = 3,
+  fig.align = 'center', fig.width = 4.5, fig.height = 4, fig.show = 'hold',
+  dpi = 120
+)
+```
+
+
+```{r external, include = FALSE, cache = FALSE}
+
+```
+
+.large[.alert-bottom[Workshop1: Principle of Forecasting] <br> <br> <br> <br>]
+.center[.title[.vlarge[Introduction  `r as.roman(1)`]]]
+.sticker-float[![fable](resources/bahman.jpeg)] 
+
+
+
+.bottom[
+Bahman Rostami-Tabar (`r fa("twitter", fill="#1da1f2")`[@Bahman_R_T](https://twitter.com/Bahman_R_T)) <br>
+Website [www.bahmanrt.com](https://www.bahmanrt.com/)
+]
+
+---
+
+## Introduction
+
+
+---
+
+## Reading
+
