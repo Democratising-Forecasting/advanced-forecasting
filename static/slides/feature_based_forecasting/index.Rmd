@@ -82,6 +82,9 @@ options(htmltools.dir.version = FALSE)
 
 - Where to go from here?
 
+---
+background-image: url(img/vaccine.png)
+background-size: cover
 
 ---
 
@@ -728,6 +731,137 @@ background-size: contain
 ---
 background-image: url(img/rf13.png)
 background-size: contain
+
+---
+
+
+### FFORMS: **F**eature-based **FOR**ecast **M**odel **S**election
+
+.pull-left[
+seer (magic ball)
+
+```{r   out.width = "20%", echo = FALSE, fig.cap=''}
+knitr::include_graphics("img/seer.png")
+```
+
+]
+
+
+.pull-right[
+```{r, comment=NA, eval=FALSE}
+install.packages("seer")
+#library(devtools)
+#install_github("thiyangt/seer")
+library(seer)
+```
+
+
+]
+
+
+
+---
+## seer package
+
+**Training set**
+
+```{r, comment=NA}
+library(Mcomp)
+data(M1)
+yearly_m1 <- subset(M1, "yearly")
+yearly_m1
+```
+
+**Test set**
+
+```{r, comment=NA}
+data(M3)
+yearly_m3 <- subset(M3, "yearly")
+m3y <- M3[1:2]
+m3y
+```
+
+
+---
+## seer package: `cal_features`
+
+```{r, echo=FALSE, warning=F, message=FALSE, comment=NA}
+library(seer)
+features_m1 <- cal_features(yearly_m1, database="M1", h=6, highfreq = FALSE)
+features_m1
+```
+
+
+
+---
+## seer package: `fcast_accuracy`
+
+
+```{r, comment=NA, message=FALSE}
+accuracy_m1 <- fcast_accuracy(tslist=yearly_m1, 
+                              models= c("arima","ets","rw","rwd", "theta", "nn"), 
+                              database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = TRUE)
+accuracy_m1
+```
+
+
+---
+## seer package: `prepare_trainingset`
+
+```{r, comment=NA, message=FALSE}
+prep_tset <- prepare_trainingset(accuracy_set = accuracy_m1, feature_set = features_m1)
+prep_tset
+```
+
+---
+
+## seer package: `prepare_trainingset`
+
+```{r, comment=NA, message=FALSE}
+prep_tset$trainingset
+```
+
+---
+## seer package
+
+```{r, comment=NA, cache=TRUE}
+M3yearly_features <- seer::cal_features(yearly_m3, database="M3", h=6, highfreq = FALSE)
+head(M3yearly_features)
+```
+
+
+---
+
+
+## seer package: `build_rf`
+
+```{r, comment=NA, message=FALSE, warning=F}
+rf <- build_rf(training_set = prep_tset$trainingset, testset=M3yearly_features, 
+               rf_type="rcp", ntree=100, 
+               seed=1, 
+               import=FALSE, mtry = 8)
+rf$predictions
+```
+
+
+---
+
+## seer package: `rf_forecast`
+
+```{r, comment=NA, message=FALSE}
+predictedlabels_m3 <- rf$predictions
+forecasts <- rf_forecast(predictions=predictedlabels_m3[1:2], tslist=yearly_m3[1:2], database="M3", function_name="cal_MASE", h=6, accuracy=TRUE)
+forecasts$mean
+```
+
+---
+
+## seer package: `rf_forecast`
+
+```{r, comment=NA, message=FALSE}
+forecasts$lower
+forecasts$upper
+```
 
 
 
