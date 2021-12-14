@@ -1,6 +1,6 @@
 ---
-title: "Figure design"
-author: "Bahman Rostami-Tabar"
+title: "Feature-based Time Series Forecasting"
+author: "Thiyanga S. Talagala"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
@@ -14,5 +14,132 @@ library(palmerpenguins)
 knitr::opts_chunk$set(echo = FALSE, comment = "")
 ```
 
-## Introduction
+
+## Question 1
+
+```{r letter-a, echo=FALSE}
+question("Which statement is wrong from the following? ",
+  answer("Features are numerical summary measures of time series"),
+  answer("All features are robust to outliers", correct = TRUE),
+  answer("Time series features are useful in data visualization, time series forecasting and anomaly detection"),
+  answer("None of the above")
+)
+```
+
+## Question 2
+
+```{r letter-b, echo=FALSE}
+library(tidyverse)
+set.seed(2021)
+a <- (3*(1:100) + 60)  + rnorm(100)
+b <- (30*rnorm(100) + 200)
+
+class <- c(rep("a", 100), rep("b", 100))
+value <- c(a, b)
+time <- rep(1:100, 2)
+df <- data.frame(time=time, class=class)
+df %>% ggplot(aes(x=time, y=value)) + geom_line() + facet_grid(vars(class))
+
+question("Which statement is true from the following? ",
+  answer("The spectral entropy value for the series a should be higher than series b."),
+  answer("The spectral entropy value for the series a should be lower than series b", correct = TRUE),
+  answer("Ideally, the both spectral entropy values should be similar."),
+  answer("By looking at the above two time series plots we cannot get an idea about spectral entropy values.")
+)
+```
+
+## Question 3
+
+```{r letter-c, echo=FALSE}
+question("Which of the feature is not computed based on STL decomposition? ",
+  answer("Strength of trend"),
+  answer("Strength of seasonality"),
+  answer("Linearity"),
+  answer("Spectral entropy", correct = TRUE)
+)
+```
+
+## Question 4
+
+```{r letter-d, echo=FALSE}
+question("Which statement is wrong from the following? ",
+  answer("Which features to use depend on the researchers's goal."),
+  answer("Which features to use depend on the available time scales (yearly, monthly, quarterly, etc.)"),
+  answer("Accurate feature selection makes the process of the overall modeling efficient in terms of time and computing cost."),
+  answer("None of the above", correct=TRUE)
+)
+```
+
+## Question 5
+
+```{r letter-e, echo=FALSE}
+question("Which statement is not range between 0-1? ",
+  answer("Autocorrelation coefficient at lag 1", correct=TRUE),
+  answer("Strength of seasonality"),
+  answer("Strength of trend"),
+  answer("Spectral entropy")
+)
+```
+
+## Question 6
+
+```{r letter-f, echo=FALSE}
+question("Which feature is scale-free measurement?",
+  answer("Mean"),
+  answer("Autocorrelation coefficient of the first differenced series", correct = TRUE),
+  answer("Stability"),
+  answer("Lumpiness")
+)
+```
+
+## Question 7
+
+```{r letter-g, echo=FALSE}
+question("Which features are useful in determining nonstationarity of the time series?",
+  answer("Autocorrelation coefficient at lag 1", correct=TRUE),
+  answer("KPSS test statistic", correct = TRUE),
+  answer("Phillips-Perron unit root test statistic", correct=TRUE),
+  answer("Length of the time series")
+)
+```
+
+
+## Question 8
+
+```{r letter-h, echo=FALSE, comment=NA, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tsibble)
+library(lubridate)
+library(fable)
+tourism <- tourism %>%
+  mutate(
+    State = recode(State,
+      "Australian Capital Territory" = "ACT",
+      "New South Wales" = "NSW",
+      "Northern Territory" = "NT",
+      "Queensland" = "QLD",
+      "South Australia" = "SA",
+      "Tasmania" = "TAS",
+      "Victoria" = "VIC",
+      "Western Australia" = "WA"
+    )
+  )
+snowy <- tourism %>%
+  filter(
+    Region == "Snowy Mountains",
+    Purpose == "Holiday"
+  )
+snowy %>% autoplot(Trips)
+
+question("A researcher computed few features for the above time series using feast package. Which is the best match for the time series?",
+  answer("strength_seasonality = 0.9, trend = 0.9, seas_acf1=0.8, entropy=0.3", correct=TRUE),
+  answer("strength_seasonality = 0.0, trend = 0.9, seas_acf1=0.8, entropy=0.3"),
+  answer("strength_seasonality = 0.9, trend = 0.0, seas_acf1=0.8, entropy=0.3"),
+  answer("strength_seasonality = 0.9, trend = 0.9, seas_acf1=0.8, entropy=0.9")
+)
+```
+
+
+
+
 
