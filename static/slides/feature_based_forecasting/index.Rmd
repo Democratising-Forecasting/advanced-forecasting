@@ -1,0 +1,733 @@
+---
+title: "Feature-based Time Series Forecasting"
+subtitle: ""
+author: "Thiyanga S. Talagala"
+date: "Forecasting for Social Good (F4SG): Democratising Forecasting"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: 
+      - default
+      - default-fonts
+      - duke-blue
+      - hygge-duke
+      - libs/cc-fonts.css
+      - libs/figure-captions.css
+      - xaringan-themer.css
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#081d58",
+  secondary_color = "#FF961C",
+ inverse_header_color = "#FFFFFF",
+ title_slide_text_color = "#edf8b1",
+ link_color =  "#41b6c4"
+)
+#style_solarized_light(text_font_google   = google_font("Josefin Sans", "400", "400i", "800i", "800"))
+#style_mono_light(
+#  base_color = "#1c5253",
+#  header_font_google = google_font("Josefin Sans"),
+#  text_font_google   = google_font("Josefin Sans", "400", "400i", "800i", "800"),
+#  code_font_google   = google_font("Fira Mono")
+#)
+```
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+<style>
+
+.center2 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+}
+</style>
+
+
+### Content
+
+
+- Time series features
+
+- feasts: *F*eature *E*xtraction *A*nd *S*tatistics for *T*ime *S*eries
+
+- Feature-based time series forecasting
+
+- Other applications
+
+    - Data visualization
+
+    - Anomaly detection
+    
+- What did we learn?
+
+- Where to go from here?
+
+
+---
+
+background-image: url(img/jhu.png)
+background-size: contain
+
+---
+
+class: inverse, center, middle
+background-image: url(img/jhu.png)
+background-position: 50% 60%1
+
+background-size: contain
+
+
+`r anicon::nia("Let's visualize the coronavirus pandemic!",  size=3, colour="yellow", animate="pulse")`
+
+---
+
+background-image: url(img/coronavirus.png)
+background-size: 90px
+background-position: 100% 6%
+
+# Data: coronavirus package
+
+
+```r
+install.packages("coronavirus")
+# devtools::install_github("RamiKrispin/coronavirus")
+```
+
+```{r, comment=NA}
+library(coronavirus)
+head(coronavirus, 8)
+```
+
+
+---
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=NA}
+library(tidyverse)
+
+
+coronavirus <- coronavirus %>% mutate(cases = replace(cases, which(cases<0), NA))
+coronavirus <- coronavirus %>% mutate(cases = replace(cases, which(cases>800000), 800))
+#confirmed <- coronavirus %>% filter(type == "confirmed")
+confirmed <- coronavirus %>% 
+  filter(type == "confirmed") %>%
+  group_by(country, date) %>%
+  summarise(cases = sum(cases)) 
+```
+
+```{r, echo=FALSE, fig.width=15, fig.height=8, warning=FALSE, message=FALSE}
+library(plotly)
+p <- ggplot(confirmed, aes(x=date, y=cases, col=country)) + geom_line() + ggtitle("Confirmed Cases") + theme(legend.position = "none") 
+
+
+ggplotly(p)
+```
+
+---
+class: center, middle
+
+# What problems do you see in the plot?
+
+---
+
+
+background-image: url(img/tukey.jpeg)
+background-size: 200px
+background-position: 100% 6%
+
+# Time series features
+
+- **Cognostics**: **Co**mputer-aided dia**gnostics** (John W. Tukey, 1985)
+
+- Characteristics of time series
+
+- Summary measures of time series
+
+
+**Basic Principle**
+
+- Transform a given time series $y=\{y_1, y_2, \cdots, y_n\}$ into a feature vector $F = (f_1(y), f_2(y), \cdots, f_p(y))'$. 
+
+
+
+
+---
+
+## Examples of time series features
+
+.pull-left[
+
+- length
+
+- strength of trend
+
+- strength of seasonality
+
+- lag-1 autocorrelation
+
+- spectral entropy
+
+- proportion of zeros
+
+- spikiness
+
+]
+
+.pull-right[
+
+- curvature
+
+- linearity
+
+- stability
+
+- number of peaks
+
+- parameter estimates of Holt-Winters' additive method
+
+- unit root test statistics
+
+
+
+
+
+
+
+
+]
+
+---
+.pull-left[
+#### Time-domain representation
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+library(Mcomp)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(ggrepel)
+library(png)
+library(tsfeatures)
+library(tidyverse)
+library(ggpubr)
+# Extract required series
+series_id <- c("N0001", "N0633", "N0625", "N0645","N1912", "N2012")
+color = c("#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02")
+six_series <- lapply(M3[series_id], function(u){u$x})
+p <- lapply(six_series,
+function(u) {autoplot(u) + xlab("") + ylab("")}
+)
+for (i in seq_along(six_series))
+p[[i]] <- p[[i]] +geom_line(color=color[i]) +ggtitle(series_id[i])+theme(title =element_text(size=10, face='bold'))
+grid.arrange(grobs = p, ncol = 2)
+```
+
+]
+
+--
+
+.pull-right[
+
+#### Feature-domain representation
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+df <- tsfeatures(six_series, c("stl_features")) %>%
+  select(trend, seasonal_strength) %>%
+  rename(seasonality = seasonal_strength) %>%
+  replace_na(list(seasonality = 0))
+df$id <- names(six_series)
+ggplot(df, aes(x = trend, y = seasonality)) +
+  geom_point(size = 5, color = c("#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02")) +
+  xlim(0, 1) + ylim(0, 1) +
+  xlab("Strength of trend") + 
+  ylab("Strength of seasonality") + 
+  coord_fixed() +
+  geom_text_repel(
+    aes(label = id),
+    colour = "black",
+    size = 5,
+    box.padding = unit(0.5, "lines")
+  ) +
+  theme(legend.position = "none")
+```
+
+]
+
+---
+
+### Time-domain representation
+
+.pull-left[
+
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+library(Mcomp)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(ggrepel)
+library(png)
+library(tsfeatures)
+library(tidyverse)
+library(ggpubr)
+# Extract required series
+series_id <- c("N0001", "N0633", "N0625", "N0645","N1912", "N2012")
+color = c("#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02")
+six_series <- lapply(M3[series_id], function(u){u$x})
+six_series
+```
+
+]
+
+.pull-right[
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+library(Mcomp)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(ggrepel)
+library(png)
+library(tsfeatures)
+library(tidyverse)
+library(ggpubr)
+# Extract required series
+series_id <- c("N0001", "N0633", "N0625", "N0645","N1912", "N2012")
+color = c("#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02")
+six_series <- lapply(M3[series_id], function(u){u$x})
+p <- lapply(six_series,
+function(u) {autoplot(u) + xlab("") + ylab("")}
+)
+for (i in seq_along(six_series))
+p[[i]] <- p[[i]] +geom_line(color=color[i]) +ggtitle(series_id[i])+theme(title =element_text(size=10, face='bold'))
+grid.arrange(grobs = p, ncol = 2)
+```
+
+]
+
+---
+### Feature-domain representation
+
+.pull-left[
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+df 
+```
+]
+
+.pull-right[
+
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+df <- tsfeatures(six_series, c("stl_features")) %>%
+  select(trend, seasonal_strength) %>%
+  rename(seasonality = seasonal_strength) %>%
+  replace_na(list(seasonality = 0))
+df$id <- names(six_series)
+ggplot(df, aes(x = trend, y = seasonality)) +
+  geom_point(size = 5, color = c("#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02")) +
+  xlim(0, 1) + ylim(0, 1) +
+  xlab("Strength of trend") + 
+  ylab("Strength of seasonality") + 
+  coord_fixed() +
+  geom_text_repel(
+    aes(label = id),
+    colour = "black",
+    size = 5,
+    box.padding = unit(0.5, "lines")
+  ) +
+  theme(legend.position = "none")
+```
+
+
+]
+
+
+---
+
+## Features for all countries
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+library(tsibble)
+library(feasts)
+
+
+coronavirus <- coronavirus %>% mutate(cases = replace(cases, which(cases<0), NA))
+coronavirus <- coronavirus %>% mutate(cases = replace(cases, which(cases>800000), 800))
+#confirmed <- coronavirus %>% filter(type == "confirmed")
+confirmed <- coronavirus %>% 
+  filter(type == "confirmed") %>%
+  group_by(country, date) %>%
+  summarise(cases = sum(cases))
+confirmed.tsibble <- confirmed %>%
+  as_tsibble(index = date, key = country)
+features.all <- confirmed.tsibble %>% features(cases, feature_set(tags = c("decomposition", "intermittent", "autocorrelation")))
+features.all
+```
+
+
+---
+
+
+.pull-left[
+
+# Time-domain 
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+df2 <- confirmed %>% filter(country=="US")
+p1 <- autoplot(as.ts(df2$cases, frequency=c(7)), col="#1b9e77") + ggtitle("US") + ylab("")
+df3 <- confirmed %>% filter(country=="Cameroon")
+p2 <- autoplot(as.ts(df3$cases, frequency=c(7)), col="#d95f02") + ggtitle("Cameroon") + ylab("")
+df4 <- confirmed %>% filter(country=="India")
+p3 <- autoplot(as.ts(df4$cases, frequency=c(7)), col="#7570b3") + ggtitle("India") + ylab("")
+df5 <- confirmed %>% filter(country=="Nicaragua")
+p4 <- autoplot(as.ts(df5$cases, frequency=c(7)), col="#e7298a") + ggtitle("Nicaragua") + ylab("")
+library(patchwork)
+p1/p2/p3/p4
+```
+
+
+]
+
+
+.pull-right[
+
+# Feature-space
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+df2 <- features.all %>% filter(country=="US")
+df3 <- features.all %>% filter(country=="Cameroon")
+df4 <- features.all %>% filter(country=="India")
+df5 <- features.all %>% filter(country=="Nicaragua")
+
+p <- features.all %>%
+  ggplot(aes(y = trend_strength, x = seasonal_strength_week, label=country)) + 
+  geom_point() + 
+  coord_equal() + 
+  xlim(c(0,1)) + ylim(c(0,1)) + 
+  labs(y = "Trend strength", y = "Seasonal strength") + 
+  theme(legend.position = "none") + 
+    geom_point(data=df2, aes(y = trend_strength, x = seasonal_strength_week), 
+             colour="#1b9e77", 
+             size=5) +
+  geom_point(data=df3, aes(y = trend_strength, x = seasonal_strength_week), 
+             colour="#d95f02", 
+             size=5) +
+  geom_point(data=df4, aes(y = trend_strength, x = seasonal_strength_week), 
+             colour="#7570b3", 
+             size=5) +
+  geom_point(data=df5, aes(y = trend_strength, x = seasonal_strength_week), 
+             colour="#e7298a", 
+             size=5) 
+ggplotly(p)
+
+```
+
+]
+
+
+---
+
+## Strength of trend
+
+.pull-left[
+
+```{r, comment=NA, message=FALSE, echo=FALSE, warning=FALSE}
+library(fable)
+as_tsibble(M3[["N1912"]]$x) %>%
+  model(
+    STL(value ~ trend(window = 7) +
+                   season(window = "periodic"),
+    robust = TRUE)) %>%
+  components() %>%
+  autoplot()
+
+```
+
+
+
+]
+
+.pull-right[
+
+$$y_t = T_t + S_t + R_t$$
+
+$$F_T = max \left(0, 1 - \frac{Var(R_t)}{Var(T_t + R_t)} \right)$$
+
+
+]
+
+
+---
+
+## Strength of seasonality
+
+.pull-left[
+
+```{r, comment=NA, message=FALSE, echo=FALSE, warning=FALSE}
+library(fable)
+as_tsibble(M3[["N1912"]]$x) %>%
+  model(
+    STL(value ~ trend(window = 7) +
+                   season(window = "periodic"),
+    robust = TRUE)) %>%
+  components() %>%
+  autoplot()
+
+```
+
+
+]
+
+
+.pull-right[
+
+$$y_t = T_t + S_t + R_t$$
+
+$$F_S = max \left(0, 1 - \frac{Var(R_t)}{Var(S_t + R_t)} \right)$$
+
+
+
+]
+
+
+---
+
+
+## *F*eature *E*xtraction *A*nd *S*tatistics for *T*ime *S*eries: *feasts*
+
+.pull-left[
+
+You could install the stable version from CRAN:
+
+```r
+install.packages("feasts")
+```
+
+You can install the development version from GitHub with:
+
+```r
+# install.packages("remotes")
+remotes::install_github("tidyverts/feasts")
+```
+]
+
+.pull-right[
+
+![](img/feastlogo.png)
+]
+
+
+
+
+---
+
+
+class: center, middle
+
+
+# Large-scale time series forecasting
+
+
+---
+
+class: inverse
+background-image: url(img/rice1.png)
+background-size: contain
+
+
+
+
+---
+
+class: inverse
+background-image: url(img/rice2.png)
+background-size: contain
+
+---
+
+class: center, middle
+
+# Feature-based time series forecasting
+
+
+---
+
+class: inverse, center, middle
+background-image: url(img/f1.png)
+background-size: contain
+
+
+---
+class: inverse, center, middle
+background-image: url(img/f2.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f3.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f4.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f5.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f6.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f7.png)
+background-size: contain
+
+
+---
+class: inverse, center, middle
+background-image: url(img/f8.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f9.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f10.png)
+background-size: contain
+
+
+---
+class: inverse, center, middle
+background-image: url(img/f11.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f12.png)
+background-size: contain
+
+---
+class: inverse, center, middle
+background-image: url(img/f13.png)
+background-size: contain
+
+---
+
+## Machine learning algorithms
+
+- Random forest
+
+- XGBoost
+
+---
+background-image: url(img/forest.jpg)
+background-size: cover
+
+# Random forest
+
+---
+background-image: url(img/rf1.png)
+background-size: contain
+
+## Random forest
+
+---
+background-image: url(img/rf2.png)
+background-size: contain
+
+## Random forest
+
+---
+background-image: url(img/rf3.png)
+background-size: contain
+
+## Random forest
+
+---
+background-image: url(img/rf4.png)
+background-size: contain
+
+## Random forest
+
+---
+background-image: url(img/rf5.png)
+background-size: contain
+
+
+
+---
+background-image: url(img/rf6.png)
+background-size: contain
+
+
+
+---
+background-image: url(img/rf7.png)
+background-size: contain
+
+
+
+---
+background-image: url(img/rf8.png)
+background-size: contain
+
+
+
+---
+background-image: url(img/rf9.png)
+background-size: contain
+
+
+
+---
+background-image: url(img/rf10.png)
+background-size: contain
+
+
+
+---
+background-image: url(img/rf11.png)
+background-size: contain
+
+
+---
+background-image: url(img/rf12.png)
+background-size: contain
+
+
+
+---
+background-image: url(img/rf13.png)
+background-size: contain
+
+
+
